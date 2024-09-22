@@ -1,24 +1,19 @@
-﻿namespace To_DoListApp
+﻿
+
+namespace To_DoListApp
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        int taskId = 0;
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void AddNewTask(object sender, EventArgs args)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            await Navigation.PushAsync(new TaskCreationPage());
         }
     }
 
